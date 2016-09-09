@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Pizza Portal | Checkout</title>
+    <link type="text/css" rel="stylesheet" href="styles.css"/>
+    <script type="text/javascript">
+        var myCart = {{ cart }};
+    </script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>
+</head>
+<body onload="checkoutReady()">
+
+<div id="header">
+    <div>
+        <ul class="first">
+            <li><a href="/">Home</a></li>
+            <li><a href="/order">Order</a></li>
+        </ul>
+        <div>
+            <a href="/"><img src="img/logo.jpg" alt="Logo"></a>
+        </div>
+        <ul class="second" style="margin-left: 350px">
+            <li class="current"><a href="/checkout" id="cart_link">My Cart {{ count }}</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </div>
+</div>
+<div id="content">
+    <div style="margin-top: 80px">
+        <h1>Order</h1>
+
+        <div id="full_order">
+
+        </div>
+
+
+        <h1>Checkout Form</h1>
+
+        <form name="order_form" method="get" action="/confirmation">
+            <table>
+                <tr>
+                    <td>First Name</td>
+                    <td>
+                        <input type="text" name="first_name" value="" id="first_name"/>
+                    </td>
+                    <td id="error_first_name" class="error"></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td>
+                        <input type="text" name="first_name" value="" id="last_name"/>
+                    </td>
+                    <td id="error_last_name" class="error"></td>
+                </tr>
+                <tr>
+                    <td>Delivery Address</td>
+                    <td>
+                        <input type="text" name="address" value="" id="address"/>
+                    </td>
+                    <td id="error_address" class="error"></td>
+                </tr>
+                <tr>
+                    <td>Telephone Number</td>
+                    <td>
+                        <input type="text" name="phone" value="" id="phone" placeholder="XXX-XXX-XXXXX"/>
+                    </td>
+                    <td id="error_phone" class="error"></td>
+                </tr>
+                <tr>
+                    <td>Sales Type</td>
+                    <td id="stype-cell">
+                        <input type="radio" name="stype" value="cash" onclick="saleTypeClick(this)"/>Cash
+                        <input type="radio" name="stype" value="credit" onclick="saleTypeClick(this)"/>Credit
+                    </td>
+                    <td id="error_sales_type" class="error"></td>
+                </tr>
+                <tr id="cr_t" style="display: none">
+                    <td>Credit Card Type</td>
+                    <td id="crtype-cell">
+                        <input type="radio" name="crtype" value="ax" onclick="crCardTypeClick(this)"/>AX
+                        <input type="radio" name="crtype" value="v" onclick="crCardTypeClick(this)"/>V
+                    </td>
+                    <td id="error_cr_type" class="error"></td>
+                </tr>
+
+                <tr id="cr_number" style="display: none">
+                    <td>Credit Card Number</td>
+                    <td>
+                        <input type="text" name="cr_number" value="" id="txt_cr_number"/>
+                    </td>
+                    <td id="error_cr_number" class="error"></td>
+                </tr>
+
+                <tr id="cr_ex_date" style="display: none">
+                    <td>Credit Card Expiration Date:</td>
+                    <td>
+                        <input type="text" name="cr_ex_date" value="" id="datepicker"/>
+                    </td>
+                    <td id="error_cr_ex_date" class="error"></td>
+                </tr>
+                <tr>
+                    <td>Sales Amount</td>
+                    <td id="total_amount"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <button style="width: 100%;" id="btn_checkout">Checkout</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<div id="footer">
+    <div>
+        <ul>
+            <li id="pasta">
+                <div>
+                    <span>Pasta</span>
+
+                    <p>Pasta is a staple food of traditional Italian cuisine, with the first reference dating to 1154 in Sicily.
+                        It is also commonly used to refer to the variety of pasta dishes.</p>
+                    <a href="/" class="more">More</a>
+                </div>
+            </li>
+            <li id="pizza">
+                <div>
+                    <span>Pizza</span>
+
+                    <p>Pizza is an oven-baked flat bread generally topped with tomato sauce and cheese.
+                        It is commonly supplemented with a selection of meats, vegetables and condiments.</p>
+                    <a href="/" class="more">More</a>
+                </div>
+            </li>
+            <li id="callus">
+                <div>
+                    <span>Call us now!</span>
+                    <b>111-111-1111</b>
+                    <p><strong>Contact us at:</strong><br><i>thechef@liberteri.com</i></p>
+                    <p><strong>Send mail:</strong><span>#46700 Westinghouse Drive,<br>Mission Blvd<br>Fremont 94539</span></p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="scripts.js"></script>
+</body>
+</html>

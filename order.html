@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Pizza Portal</title>
+    <link type="text/css" rel="stylesheet" href="styles.css"/>
+    <script type="text/javascript">
+
+    </script>
+</head>
+<body onload="indexReady()">
+
+<div id="header">
+    <div>
+        <ul class="first">
+            <li><a href="/">Home</a></li>
+            <li class="current"><a href="/order">Order</a></li>
+        </ul>
+        <div>
+            <a href="/"><img src="img/logo.jpg" alt="Logo"></a>
+        </div>
+        <ul class="second" style="margin-left: 350px">
+            <li><a href="/checkout" id="cart_link">My Cart {{ count }}</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </div>
+</div>
+<div id="content">
+    <div id="order-form" style=" margin-top: 120px;">
+        <h1>Order the best pizza</h1>
+
+        <form name="order_form" method="post" action="/add">
+            <table>
+                <tr><td colspan="3" id="success"></td></tr>
+                <tr>
+                    <td>Size of pizza</td>
+                    <td>
+                        <select name="size" id="size">
+                            <option value="Small" selected="selected">Small</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Large">Large</option>
+                        </select>
+                    </td>
+                    <td id="size_error" class="error"></td>
+                </tr>
+                <tr>
+                    <td>Kind of pizza</td>
+                    <td>
+                        <select name="kind" size="3" id="kind">
+                            <option value="Pepperoni">Pepperoni</option>
+                            <option value="Vegetarian">Vegetarian</option>
+                            <option value="Combo">Combo</option>
+                        </select>
+                    </td>
+                    <td id="kind_error" class="error"></td>
+                </tr>
+                <tr>
+                    <td>Extra Cheese</td>
+                    <td>
+                        <input type="checkbox" name="extra_cheese" value="yes" id="extra_cheese"/>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Quantity</td>
+                    <td>
+                        <input type="text" name="quantity" value="1" id="quantity"/>
+                    </td>
+                    <td id="error_quantity" class="error"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="btn_add_to_cart">Add to Cart</button>
+                    </td>
+                    <td>
+                        <button id="btn_go_to_cart">Go to Cart</button>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button id="calculate">Calculate</button>
+                    </td>
+                    <td>
+                        <span>Cost of Selected pizza: $<label id="price">0</label></span>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<div id="footer">
+    <div>
+        <ul>
+            <li id="pasta">
+                <div>
+                    <span>Pasta</span>
+
+                    <p>Pasta is a staple food of traditional Italian cuisine, with the first reference dating to 1154 in Sicily.
+                        It is also commonly used to refer to the variety of pasta dishes.</p>
+                    <a href="/" class="more">More</a>
+                </div>
+            </li>
+            <li id="pizza">
+                <div>
+                    <span>Pizza</span>
+
+                    <p>Pizza is an oven-baked flat bread generally topped with tomato sauce and cheese.
+                        It is commonly supplemented with a selection of meats, vegetables and condiments.</p>
+                    <a href="/" class="more">More</a>
+                </div>
+            </li>
+            <li id="callus">
+                <div>
+                    <span>Call us now!</span>
+                    <b>111-111-111</b>
+
+                    <p><strong>Contact us at:</strong><br><i>thechef@liberteri.com</i></p>
+
+                    <p><strong>Send mail:</strong><span>#46700 Westinghouse Drive,<br>Mission Blvd<br>Fremont 94539</span></p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="scripts.js"></script>
+</body>
+</html>
